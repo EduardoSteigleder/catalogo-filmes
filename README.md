@@ -24,32 +24,39 @@ A aplicação foi desenvolvida como teste técnico, com separação clara entre 
 
 ## Estrutura do Projeto
 
+```
 catalogo-filmes/
-|-- backend/
-|   |-- app/
-|   |   `-- Http/
-|   |       `-- Controllers/
-|   |           `-- Api/
-|   |               |-- FavoriteController.php
-|   |               `-- TmdbController.php
-|   |-- app/Models/Favorite.php
-|   |-- database/migrations/2026_01_03_022905_create_favorites_table.php
-|   `-- routes/api.php
-|-- frontend/
-|   `-- src/
-|       |-- api/
-|       |   |-- http.js
-|       |   |-- tmdb.js
-|       |   `-- favorites.js
-|       |-- stores/
-|       |   `-- favorites.js
-|       |-- router/
-|       |   `-- index.js
-|       `-- views/
-|           |-- SearchView.vue
-|           `-- FavoritesView.vue
-`-- README.md
-
+├── backend/                # API Laravel
+│   ├── app/
+│   │   ├── Http/
+│   │   │   └── Controllers/
+│   │   │       └── Api/
+│   │   │           ├── FavoriteController.php
+│   │   │           └── TmdbController.php
+│   │   └── Models/
+│   │       └── Favorite.php
+│   ├── database/
+│   │   └── migrations/
+│   │       └── create_favorites_table.php
+│   ├── routes/
+│   │   └── api.php
+│   ├── .env.example
+│   └── artisan
+│
+├── frontend/               # Aplicação Vue 3
+│   ├── src/
+│   │   ├── api/            # Camada de acesso à API
+│   │   ├── stores/         # Pinia stores
+│   │   ├── views/          # Páginas da aplicação
+│   │   ├── router/         # Vue Router
+│   │   ├── App.vue
+│   │   └── main.js
+│   ├── vite.config.js
+│   └── package.json
+│
+├── README.md
+└── .gitignore
+```
 
 ---
 
@@ -64,49 +71,108 @@ catalogo-filmes/
 
 Na pasta `backend`, copie o arquivo `.env.example` para `.env` e configure:
 
-DB_CONNECTION=mysql  
-DB_HOST=127.0.0.1  
-DB_PORT=3306  
-DB_DATABASE=catalogo_filmes  
-DB_USERNAME=root  
-DB_PASSWORD=1234  
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=catalogo_filmes
+DB_USERNAME=root
+DB_PASSWORD=1234
 
-TMDB_API_KEY=SUA_CHAVE_DO_TMDB  
+TMDB_API_KEY=SUA_CHAVE_DO_TMDB
+```
 
 ### Execução
 
 Na pasta `backend`:
 
-composer install  
-php artisan key:generate  
-php artisan migrate  
-php artisan serve  
+```
+composer install
+php artisan key:generate
+php artisan migrate
+php artisan serve
+```
 
 API disponível em:
 
+```
 http://127.0.0.1:8000
+```
 
-### Rotas da API
+---
 
-Buscar filmes (API pública):
+## API – Documentação
 
-GET /api/tmdb/search?query=nome-do-filme  
+Base URL:
 
-Listar favoritos:
+```
+http://127.0.0.1:8000/api
+```
 
-GET /api/favorites  
+### 🔎 TMDB
 
-Filtrar favoritos por gênero:
+#### Buscar filmes
 
-GET /api/favorites?genre=ID_DO_GENERO  
+```
+GET /tmdb/search
+```
 
-Adicionar favorito:
+**Query Params**
 
-POST /api/favorites  
+| Parâmetro | Tipo   | Obrigatório | Descrição     |
+|----------|--------|-------------|---------------|
+| query    | string | sim         | Nome do filme |
 
-Remover favorito:
+**Exemplo**
 
-DELETE /api/favorites/{id}  
+```
+GET /api/tmdb/search?query=matrix
+```
+
+---
+
+### ⭐ Favoritos
+
+#### Listar favoritos
+
+```
+GET /favorites
+```
+
+#### Filtrar favoritos por gênero
+
+```
+GET /favorites?genre={genre_id}
+```
+
+#### Adicionar favorito
+
+```
+POST /favorites
+```
+
+**Body (JSON)**
+
+```json
+{
+  "tmdb_id": 603,
+  "title": "Matrix",
+  "genre_ids": [28, 878],
+  "poster_path": "/poster.jpg"
+}
+```
+
+#### Remover favorito
+
+```
+DELETE /favorites/{id}
+```
+
+**Exemplo**
+
+```
+DELETE /api/favorites/3
+```
 
 ---
 
@@ -120,16 +186,16 @@ DELETE /api/favorites/{id}
 
 Na pasta `frontend`:
 
-npm install  
-npm run dev  
+```
+npm install
+npm run dev
+```
 
 Aplicação disponível em:
 
+```
 http://localhost:5173
-
-### Integração
-
-O frontend consome a API Laravel via `/api`, utilizando proxy configurado no Vite.
+```
 
 ---
 
@@ -142,3 +208,11 @@ O frontend consome a API Laravel via `/api`, utilizando proxy configurado no Vit
 - Filtrar favoritos por gênero
 - Remover filmes dos favoritos
 - Identificação visual de filmes já favoritados
+
+---
+
+## Observações
+
+- Projeto desenvolvido como teste técnico
+- Backend e frontend desacoplados
+- Estrutura simples, clara e organizada
