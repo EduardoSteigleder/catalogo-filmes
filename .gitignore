@@ -1,0 +1,14 @@
+.env
+.env.*
+
+backend/vendor/
+backend/storage/
+backend/bootstrap/cache/
+
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+.vscode/
+.idea/
+*.log
