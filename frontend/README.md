@@ -1,5 +1,47 @@
-# Vue 3 + Vite
+# Frontend - Catálogo de Filmes
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Aplicação frontend desenvolvida como SPA (Single Page Application), responsável pela interface do usuário e consumo da API do backend.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Tecnologias utilizadas
+
+- Vue.js 3
+- JavaScript
+- Vite
+- Axios
+- Vue Router
+- Pinia
+
+## Estrutura do projeto
+```
+frontend/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── router/
+│   ├── services/
+│   ├── store/
+│   ├── App.vue
+│   └── main.js
+├── index.html
+├── package.json
+└── vite.config.js
+```
+## Funcionalidades
+
+- Interface para busca de filmes
+- Listagem de resultados
+- Exibição de informações básicas
+- Gerenciamento visual de favoritos
+- Comunicação com backend via API REST
+
+## Como executar
+
+1. Acesse a pasta frontend
+2. Execute npm install
+3. Execute npm run dev
+
+O frontend ficará disponível em http://127.0.0.1:5173
+
+O backend deve estar em execução para funcionamento completo da aplicação.
