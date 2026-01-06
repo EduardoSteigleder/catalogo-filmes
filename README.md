@@ -24,39 +24,53 @@ A aplicação foi desenvolvida como teste técnico, com separação clara entre 
 
 ## Estrutura do Projeto
 
-
+```
 catalogo-filmes/
-├── backend/                # API Laravel
+├── backend/
 │   ├── app/
 │   │   ├── Http/
 │   │   │   └── Controllers/
 │   │   │       └── Api/
 │   │   │           ├── FavoriteController.php
 │   │   │           └── TmdbController.php
-│   │   └── Models/
-│   │       └── Favorite.php
+│   │   ├── Models/
+│   │   │   └── Favorite.php
 │   ├── database/
-│   │   └── migrations/
-│   │       └── create_favorites_table.php
+│   │   ├── migrations/
+│   │   │   └── *_create_favorites_table.php
+│   │   └── seeders/
 │   ├── routes/
 │   │   └── api.php
+│   ├── config/
+│   ├── public/
 │   ├── .env.example
 │   └── artisan
 │
-├── frontend/               # Aplicação Vue 3
+├── frontend/
 │   ├── src/
-│   │   ├── api/            # Camada de acesso à API
-│   │   ├── stores/         # Pinia stores
-│   │   ├── views/          # Páginas da aplicação
-│   │   ├── router/         # Vue Router
+│   │   ├── api/
+│   │   │   ├── http.js
+│   │   │   ├── tmdb.js
+│   │   │   └── favorites.js
+│   │   ├── stores/
+│   │   │   └── favorites.js
+│   │   ├── views/
+│   │   │   ├── SearchView.vue
+│   │   │   └── FavoritesView.vue
+│   │   ├── router/
+│   │   │   └── index.js
+│   │   ├── lib/
+│   │   │   └── toast.js
 │   │   ├── App.vue
 │   │   └── main.js
+│   ├── index.html
 │   ├── vite.config.js
 │   └── package.json
 │
-├── README.md
-└── .gitignore
+├── .gitignore
+└── README.md
 
+```
 
 ---
 
