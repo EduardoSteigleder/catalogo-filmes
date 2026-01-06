@@ -1,8 +1,8 @@
 # Catálogo de Filmes – Teste Técnico
 
-Aplicação full stack para busca de filmes em API pública, com funcionalidade de favoritar, listar, filtrar e remover filmes.
+Sistema web para pesquisa de filmes utilizando a API pública do TMDB, permitindo buscar títulos, visualizar informações e gerenciar uma lista de filmes favoritos.
 
-Projeto separado em backend (API) e frontend.
+A aplicação foi desenvolvida como teste técnico, com separação clara entre backend (API) e frontend.
 
 ---
 
@@ -22,11 +22,46 @@ Projeto separado em backend (API) e frontend.
 
 ---
 
-## Estrutura
+## Estrutura do Projeto
 
 catalogo-filmes/
 ├── backend/
-└── frontend/
+│   ├── app/
+│   │   ├── Http/
+│   │   │   └── Controllers/
+│   │   │       └── Api/
+│   │   │           ├── FavoriteController.php
+│   │   │           └── TmdbController.php
+│   │   └── Models/
+│   │       └── Favorite.php
+│   ├── database/
+│   │   └── migrations/
+│   │       └── create_favorites_table.php
+│   ├── routes/
+│   │   └── api.php
+│   ├── .env.example
+│   └── artisan
+│
+├── frontend/
+│   ├── src/
+│   │   ├── api/
+│   │   │   ├── http.js
+│   │   │   ├── tmdb.js
+│   │   │   └── favorites.js
+│   │   ├── stores/
+│   │   │   └── favorites.js
+│   │   ├── views/
+│   │   │   ├── SearchView.vue
+│   │   │   └── FavoritesView.vue
+│   │   ├── router/
+│   │   │   └── index.js
+│   │   ├── App.vue
+│   │   └── main.js
+│   ├── vite.config.js
+│   └── package.json
+│
+├── README.md
+└── .gitignore
 
 ---
 
@@ -39,7 +74,7 @@ catalogo-filmes/
 
 ### Configuração
 
-Na pasta `backend`, copie `.env.example` para `.env` e configure:
+Na pasta `backend`, copie o arquivo `.env.example` para `.env` e configure:
 
 DB_CONNECTION=mysql  
 DB_HOST=127.0.0.1  
@@ -48,9 +83,9 @@ DB_DATABASE=catalogo_filmes
 DB_USERNAME=root  
 DB_PASSWORD=1234  
 
-TMDB_API_KEY=SUA_CHAVE_AQUI  
+TMDB_API_KEY=SUA_CHAVE_DO_TMDB  
 
-### Executar
+### Execução
 
 Na pasta `backend`:
 
@@ -63,27 +98,27 @@ API disponível em:
 
 http://127.0.0.1:8000
 
-### Rotas
+### Rotas da API
 
 Buscar filmes (API pública):
 
-GET /api/tmdb/search?query=nome-do-filme
+GET /api/tmdb/search?query=nome-do-filme  
 
 Listar favoritos:
 
-GET /api/favorites
+GET /api/favorites  
 
-Filtrar por gênero:
+Filtrar favoritos por gênero:
 
-GET /api/favorites?genre=ID_DO_GENERO
+GET /api/favorites?genre=ID_DO_GENERO  
 
 Adicionar favorito:
 
-POST /api/favorites
+POST /api/favorites  
 
 Remover favorito:
 
-DELETE /api/favorites/{id}
+DELETE /api/favorites/{id}  
 
 ---
 
@@ -93,7 +128,7 @@ DELETE /api/favorites/{id}
 - Node.js 18+
 - npm
 
-### Executar
+### Execução
 
 Na pasta `frontend`:
 
@@ -104,6 +139,18 @@ Aplicação disponível em:
 
 http://localhost:5173
 
-### API
+### Integração
 
-O frontend consome a API Laravel via `/api`, usando proxy configurado no Vite.
+O frontend consome a API Laravel via `/api`, utilizando proxy configurado no Vite.
+
+---
+
+## Funcionalidades
+
+- Busca de filmes na API do TMDB
+- Exibição de informações dos filmes
+- Adicionar filmes aos favoritos
+- Listar favoritos
+- Filtrar favoritos por gênero
+- Remover filmes dos favoritos
+- Identificação visual de filmes já favoritados
