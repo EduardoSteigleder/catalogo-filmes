@@ -24,7 +24,7 @@ A aplicação foi desenvolvida como teste técnico, com separação clara entre 
 
 ## Estrutura do Projeto
 
-```
+
 catalogo-filmes/
 ├── backend/                # API Laravel
 │   ├── app/
@@ -56,7 +56,7 @@ catalogo-filmes/
 │
 ├── README.md
 └── .gitignore
-```
+
 
 ---
 
