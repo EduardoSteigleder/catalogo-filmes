@@ -22,11 +22,11 @@ O projeto foi estruturado com backend e frontend separados, mantendo responsabil
 - Pinia
 
 ## Estrutura geral do projeto
-
+```
 catalogo-filmes/
 ├── backend/
 └── frontend/
-
+```
 ## Objetivo do projeto
 
 - Consumir dados da API do TMDB
@@ -38,7 +38,6 @@ catalogo-filmes/
 ## Execução do projeto
 
 As instruções detalhadas para execução estão disponíveis nos arquivos:
-```
+
 - backend/README.md
 - frontend/README.md
-```
