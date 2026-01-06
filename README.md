@@ -25,19 +25,31 @@ A aplicação foi desenvolvida como teste técnico, com separação clara entre 
 ## Estrutura do Projeto
 
 catalogo-filmes/
-├─ backend/
-│  ├─ app/Http/Controllers/Api/
-│  │  ├─ FavoriteController.php
-│  │  └─ TmdbController.php
-│  ├─ app/Models/Favorite.php
-│  ├─ database/migrations/2026_01_03_022905_create_favorites_table.php
-│  └─ routes/api.php
-├─ frontend/
-│  ├─ src/api/ (http.js, tmdb.js, favorites.js)
-│  ├─ src/stores/ (favorites.js)
-│  ├─ src/router/ (index.js)
-│  └─ src/views/ (SearchView.vue, FavoritesView.vue)
-└─ README.md
+|-- backend/
+|   |-- app/
+|   |   `-- Http/
+|   |       `-- Controllers/
+|   |           `-- Api/
+|   |               |-- FavoriteController.php
+|   |               `-- TmdbController.php
+|   |-- app/Models/Favorite.php
+|   |-- database/migrations/2026_01_03_022905_create_favorites_table.php
+|   `-- routes/api.php
+|-- frontend/
+|   `-- src/
+|       |-- api/
+|       |   |-- http.js
+|       |   |-- tmdb.js
+|       |   `-- favorites.js
+|       |-- stores/
+|       |   `-- favorites.js
+|       |-- router/
+|       |   `-- index.js
+|       `-- views/
+|           |-- SearchView.vue
+|           `-- FavoritesView.vue
+`-- README.md
+
 
 ---
 
